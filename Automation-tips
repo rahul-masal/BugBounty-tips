@@ -1,0 +1,20 @@
+<h1>New Subdomains script with notify "Save this script as a Bot.sh"</h1>
+---------------------------------------------------
+#!/bin/bash
+
+# Prompt the user to enter the file path and name for live.txt
+echo "Enter the file path and name for live.txt:"
+read live_file
+
+while true;  # This creates an infinite loop, which will keep running until manually stopped.
+do
+    cat "$live_file" | httpx -sc -cl -location -title | anew newSubs.txt | notify -pc ./pc /home/thor/.config/notify/provider-config.yaml
+    # Explanation of each command:
+    # 1. cat "$live_file" - Reads the contents of the user-specified file.
+    # 2. httpx -sc -cl -location -title - Performs some operation on the data from "$live_file."
+    # 3. anew newSubs.txt - Appends the output to "newSubs.txt," creating a new file if it doesn't exist.
+    # 4. notify -pc ./pc /home/thor/.config/notify/provider-config.yaml - Sends a notification.
+
+    sleep 15;  # Pauses the loop for 15 seconds before running again.
+done
+-------------------------------------------------------------------------------------------------------------------
