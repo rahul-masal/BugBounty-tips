@@ -8,7 +8,7 @@ read live_file
 
 while true;  # This creates an infinite loop, which will keep running until manually stopped.
 do
-    cat "$live_file" | httpx -sc -cl -location -title | anew newSubs.txt | notify -pc ./pc /home/thor/.config/notify/provider-config.yaml
+    cat "$live_file" | httpx -sc -cl -location -title | anew newSubs.txt | notify -pc /home/thor/.config/notify/provider-config.yaml
     # Explanation of each command:
     # 1. cat "$live_file" - Reads the contents of the user-specified file.
     # 2. httpx -sc -cl -location -title - Performs some operation on the data from "$live_file."
